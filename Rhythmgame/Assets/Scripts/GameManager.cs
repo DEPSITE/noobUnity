@@ -31,9 +31,7 @@ public class GameManager : MonoBehaviour
 
     //음악 변수
     private AudioSource audioSoruce;
-    private string music = "Drops of H20";
-    private string music2 = "Aether Theories";
-    private string music3 = "Paint the Sky";
+    public string music = "2";
     void MusicStart()
     {//비트 음악파일 재생
         AudioClip audioClip = Resources.Load<AudioClip>("Beats/" + music);
