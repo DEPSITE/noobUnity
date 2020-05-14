@@ -28,8 +28,23 @@ public class GameManager : MonoBehaviour
     public enum judges {NONE=0,BAD,GOOD,PERFECT,MISS};
     public GameObject[] trails;
     private SpriteRenderer[] trailSpriteRenderers;
+
+    //음악 변수
+    private AudioSource audioSoruce;
+    private string music = "Drops of H20";
+    private string music2 = "Aether Theories";
+    private string music3 = "Paint the Sky";
+    void MusicStart()
+    {//비트 음악파일 재생
+        AudioClip audioClip = Resources.Load<AudioClip>("Beats/" + music);
+        audioSoruce = GetComponent<AudioSource>();
+        audioSoruce.clip = audioClip;
+        audioSoruce.Play();
+
+    }
     void Start()
     {
+        Invoke("MusicStart", 2);
         judgementSpriteRenderer = judgeUI.GetComponent<Image>();
         judgementSpriteAnimator = judgeUI.GetComponent<Animator>();
         scoreText = scoreUI.GetComponent<Text>();
