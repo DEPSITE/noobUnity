@@ -51,6 +51,6 @@ public class NoteBehavior : MonoBehaviour
             judge = GameManager.judges.MISS;
             gameObject.SetActive(false);
         }
-        Debug.Log(judge);
+        //Debug.Log(judge);
     }
 }
