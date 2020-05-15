@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class NoteController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -79,7 +79,17 @@ public class NoteController : MonoBehaviour
         {
             StartCoroutine(AwaitMakeNote(notes[i]));
         }
-        
+        //마지막 노트 기준 게임종료함수 호출
+        StartCoroutine(AwaitGameResult(notes[notes.Count - 1].order));
+    }
+    IEnumerator AwaitGameResult(int order)
+    {
+        yield return new WaitForSeconds(startingPoint + order * beatInterval +8.0f);
+        GameResult();
+    }
+    void GameResult()
+    {
+        SceneManager.LoadScene("GameResultScene");
     }
     // Update is called once per frame
     void Update()

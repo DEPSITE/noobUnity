@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     //음악 변수
     private AudioSource audioSoruce;
     public string music = "2";
+    //자동
+    public bool autoPerfect;
     void MusicStart()
     {//비트 음악파일 재생
         AudioClip audioClip = Resources.Load<AudioClip>("Beats/" + music);
