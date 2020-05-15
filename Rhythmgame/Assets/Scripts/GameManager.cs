@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public bool autoPerfect;
     void MusicStart()
     {//비트 음악파일 재생
-        AudioClip audioClip = Resources.Load<AudioClip>("Beats/" + music);
+        AudioClip audioClip = Resources.Load<AudioClip>("Beats/" + PlayerInformation.selectedMusic);
         audioSoruce = GetComponent<AudioSource>();
         audioSoruce.clip = audioClip;
         audioSoruce.Play();

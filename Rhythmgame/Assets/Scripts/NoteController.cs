@@ -50,7 +50,7 @@ public class NoteController : MonoBehaviour
     {
         noteObjectPooler = gameObject.GetComponent<ObjectPooler>();
         //리소스에서 beat 텍스트 파일 불러오기
-        TextAsset textAsset = Resources.Load<TextAsset>("Beats/" + GameManager.instance.music);
+        TextAsset textAsset = Resources.Load<TextAsset>("Beats/" + PlayerInformation.selectedMusic);
         StringReader reader = new StringReader(textAsset.text);
         //첫번째줄은 곡 이름
         musicTitle = reader.ReadLine();
@@ -70,7 +70,7 @@ public class NoteController : MonoBehaviour
         while ((line = reader.ReadLine()) != null)
         {
             Note note = new Note(
-                   Convert.ToInt32(line.Split(' ')[0]),
+                   Convert.ToInt32(line.Split(' ')[0]) +1,
                    Convert.ToInt32(line.Split(' ')[1])
                 );
             notes.Add(note);
